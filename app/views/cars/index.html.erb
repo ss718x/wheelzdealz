@@ -1,2 +1,18 @@
-<h1>Cars#index</h1>
-<p>Find me in app/views/cars/index.html.erb</p>
+<div class="container">
+  <h1>Cars</h1>
+
+  <% @cars.each do |car| %>
+    <div class="card" style="width: 18rem;">
+    <% model = car.car_model %>
+  <img class="card-img-top" src="https://source.unsplash.com/300x300/?<%= model %>" alt="for sale">
+  <div class="card-body">
+       <h2><%= car.car_model %></h2>
+    <p><%= car.car_info %></p>
+    <span><%= car.car_price %></span>
+  </div>
+</div>
+  <% end %>
+</div>
+
+
+https://source.unsplash.com/300x300/?luxury_car
