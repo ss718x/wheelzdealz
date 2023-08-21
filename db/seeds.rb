@@ -8,9 +8,9 @@
 require 'faker'
 20.times do
   cars = cars.new(
-    model: Faker::Vehicle.make_and_model,
-    info: Faker::Vehicle.standard_specs,
-    price: rand(1000000..10000000),
+    car_model: Faker::Vehicle.make_and_model,
+    car_info: Faker::Vehicle.standard_specs,
+    car_price: rand(1_000_000..10_000_000),
     offer_status: false
   )
 end
