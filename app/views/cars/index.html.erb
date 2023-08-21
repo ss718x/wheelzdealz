@@ -1,15 +1,38 @@
+<style>
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card {
+    flex: 0 0 calc(25% - 1rem); /* Adjust the width as needed, considering the margin */
+    margin-bottom: 2rem;
+  }
+
+  .card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+</style>
+
 <div class="container">
   <h1>Cars</h1>
 
-  <% @cars.each do |car| %>
-    <div class="card" style="width: 18rem;">
-    <% model = car.car_model %>
-  <img class="card-img-top" src="https://source.unsplash.com/300x300/?<%= model %>" alt="for sale">
-  <div class="card-body">
-       <h2><%= car.car_model %></h2>
-    <p><%= car.car_info %></p>
-    <span><%= car.car_price %></span>
+  <div class="card-container">
+    <% @cars.each do |car| %>
+      <div class="card">
+        <div class="card-inner">
+          <% model = car.car_model %>
+          <img class="card-img-top" src="https://source.unsplash.com/300x300/?<%= model %>" alt="for sale">
+          <div class="card-body">
+            <h2><%= car.car_model %></h2>
+            <p><%= car.car_info %></p>
+            <span><%= car.car_price %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-</div>
-  <% end %>
 </div>
