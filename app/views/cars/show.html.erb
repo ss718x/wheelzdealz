@@ -1,2 +1,16 @@
-<h1>Cars#show</h1>
-<p>Find me in app/views/cars/show.html.erb</p>
+<h2 class="text-center">Your listing has been created.</h2>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="card shadow-lg rounded" style="width: 18rem;">
+      <% model = @car.car_model %>
+      <img class="card-img-top mt-3" src="https://source.unsplash.com/300x300/?<%= model %>" alt="for sale">
+      <div class="card-body">
+        <h2><%= @car.car_model %></h2>
+        <p><b>Description</b>: <%= @car.car_info %></p>
+        <p><b>Price:</b> <%= @car.car_price %></p>
+        <span><b>Seller:</b> <%= current_user.email %></span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,17 +1,18 @@
-<div class="container" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1511994477422-b69e44bd4ea9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1679&q=80);">
+<div class="container" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1511994477422-b69e44bd4ea9);">
   <h1 class="title">Welcome to Wheelzdealz!</h1>
 
-  <% @cars.each do |car| %>
-    <div class="card" style="width: 18rem;">
+<% @cars.each do |car| %>
+  <div class="card" style="width: 18rem;">
     <% model = car.car_model %>
-  <img class="card-img-top" src="https://source.unsplash.com/300x300/?<%= model %>" alt="for sale">
-  <div class="card-body">
+    <img class="card-img-top" src="https://source.unsplash.com/300x300/?<%= model %>" alt="for sale">
+    <div class="card-body">
       <h2><%= car.car_model %></h2>
-    <p><%= car.car_info %></p>
-    <span><%= car.car_price %></span>
+      <p><%= car.car_info %></p>
+      <span><%= car.car_price %></span>
+    </div>
   </div>
-</div>
-  <% end %>
+<% end %>
+
 </div>
   <h1>Explore All Vehicles</h1>
   <%= simple_form_for :search, url: root_path, method: :get do |f| %>
