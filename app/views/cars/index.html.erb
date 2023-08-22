@@ -16,15 +16,17 @@
 
 <div class="card-container mt-4 row row-cols-1 row-cols-md-4 g-4 justify-content-center">
   <% @cars.each do |car| %>
-    <div class="card m-3" style="width: 18rem;">
-      <% model = car.car_model %>
-      <img class="card-img-top" src="https://source.unsplash.com/300x300/?<%= model %>" alt="for sale">
-      <div class="card-body">
-        <h2><%= car.car_model %></h2>
-        <p><%= car.car_info %></p>
-        <span><%= car.car_price %></span>
+      <div class="card m-3" style="width: 18rem;">
+        <%= link_to car_path(car), class: "text-decoration-none text-dark" do %>
+        <% model = car.car_model %>
+        <img class="card-img-top" src="https://source.unsplash.com/300x300/?<%= model %>" alt="for sale">
+        <div class="card-body">
+          <h2><%= car.car_model %></h2>
+          <p><%= car.car_info %></p>
+          <span><%= car.car_price %></span>
+        </div>
+         <% end %>
       </div>
-    </div>
   <% end %>
 </div>
 
