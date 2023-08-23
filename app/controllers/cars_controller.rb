@@ -21,6 +21,10 @@ class CarsController < ApplicationController
     end
   end
 
+  def check_login
+    render json: { login_required: !user_signed_in? }
+  end
+
   private
 
   def car_params
