@@ -23,10 +23,23 @@
                 input_html: { autocomplete: "current-password" } %>
   </div>
 
+  <div class="field">
+  <%= f.label :avatar %><br />
+  <%= f.file_field :avatar %>
+  </div>
+  <img id="avatarPreview" src="#" alt="User Avatar Preview" style="display: none;"/>
+  <% if current_user.avatar.attached? %>
+    <%= image_tag current_user.avatar.variant(resize: "150x150") %>
+  <% else %>
+    <p>No avatar uploaded.</p>
+  <% end %>
+
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Update", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+
 
 <h3>Cancel my account</h3>
 
