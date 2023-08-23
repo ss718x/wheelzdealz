@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ["form"];
 
   submit(event) {
-    event.preventDefault();
     if (!this.userLoggedIn()) {
       this.showLoginPrompt();
     } else {
