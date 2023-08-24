@@ -9,7 +9,7 @@
         <div class="card-body">
           <h2 class="card-title"><%= @car.car_model %></h2>
           <p class="card-text mb-1"><strong>Description:</strong> <%= @car.car_info %></p>
-          <p class="card-text mb-1"><strong>Price:</strong> <%= "¥" + @car.car_price.to_s %></p>
+          <p class="card-text mb-1"><strong>Price:</strong> <%= "¥" + number_with_delimiter(@car.car_price.to_s) %></p>
           <p class="card-text mb-0"><strong>Name:</strong> <%= @car.user.name %></p>
           <p class="card-text mb-0"><strong>Email:</strong> <%= @car.user.email %></p>
         </div>

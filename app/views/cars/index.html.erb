@@ -28,7 +28,7 @@
           <p><%= truncate(car.car_info, length: 10, separator: ' ') %></p>
           </code></pre>
           </details>
-          <span><%= "¥" + car.car_price.to_s %></span>
+          <span><%= "¥" + number_with_delimiter(car.car_price.to_s) %></span>
         </div>
          <% end %>
       </div>
