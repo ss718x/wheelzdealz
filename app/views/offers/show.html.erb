@@ -1,3 +1,21 @@
-<h1><%= @offer.title %></h1>
-<p><%= @offer.description %></p>
-<p><%= number_to_currency(@offer.price) %></p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card">
+        <div class="card-header">
+          Offer for <%= @offer.car.car_model %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= @offer.car.car_model %></h5>
+          <p class="card-text">
+            <strong>Car Info:</strong> <%= @offer.car.car_info %><br>
+            <strong>Price:</strong> $<%= @offer.car.car_price %><br>
+            <strong>Seller:</strong> <%= @offer.car.seller.name %><br>
+            <strong>Buyer:</strong> <%= @offer.buyer.name %><br>
+          </p>
+          <%= link_to 'Back to Offers', offers_path, class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
