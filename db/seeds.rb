@@ -18,9 +18,8 @@ User.destroy_all
   )
 end
 
-cars = 20.times.map do
-  seller = User.all.sample
-  Car.create!(
+10.times do
+  car = Car.new(
     car_model: Faker::Vehicle.make_and_model,
     car_info: Faker::Vehicle.standard_specs.join(". "),
     car_price: rand(1_000_000..10_000_000),
