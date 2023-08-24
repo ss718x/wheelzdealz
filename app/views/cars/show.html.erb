@@ -9,9 +9,9 @@
         <div class="card-body">
           <h2 class="card-title"><%= @car.car_model %></h2>
           <p class="card-text mb-1"><strong>Description:</strong> <%= @car.car_info %></p>
-          <p class="card-text mb-1"><strong>Price:</strong> <%= "¥" + @car.car_price.to_s %></p>
-          <p class="card-text mb-0"><strong>Name:</strong> <%= @car.user.name %></p>
-          <p class="card-text mb-0"><strong>Email:</strong> <%= @car.user.email %></p>
+          <p class="card-text mb-1"><strong>Price:</strong> <%= @car.car_price %></p>
+          <p class="card-text mb-0"><strong>Name:</strong> <%= @car.seller.name %></p>
+          <p class="card-text mb-0"><strong>Email:</strong> <%= @car.seller.email %></p>
         </div>
         <div class="d-flex justify-content-center">
           <%= link_to "Edit", edit_offer_path, class: "offer_link btn btn-primary mx-5" %>
