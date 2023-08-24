@@ -1,0 +1,8 @@
+<h1>Offers</h1>
+<% @offers.each do |offer| %>
+  <p>
+    <%= link_to offer.title, offer %><br>
+    <%= offer.description %><br>
+    <%= number_to_currency(offer.price) %>
+  </p>
+<% end %>
