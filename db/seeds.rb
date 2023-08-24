@@ -14,7 +14,7 @@ user = User.create(
   password: "88888888"
 )
 
-20.times do
+10.times do
   car = Car.new(
     car_model: Faker::Vehicle.make_and_model,
     car_info: Faker::Vehicle.standard_specs.join(". "),
