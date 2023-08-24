@@ -1,0 +1,22 @@
+<h1>Offers</h1>
+
+<div class="container mt-5">
+  <div class="row">
+    <% @offers.each do |offer| %>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= offer.car.car_model %></h5>
+            <p class="card-text">
+              <strong>Car Info:</strong> <%= offer.car.car_info %><br>
+              <strong>Price:</strong> $<%= offer.car.car_price %><br>
+              <strong>Seller:</strong> <%= offer.car.seller.name %><br>
+              <strong>Buyer:</strong> <%= offer.buyer.name %><br>
+            </p>
+            <%= link_to 'View Offer', offer_path(offer), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
