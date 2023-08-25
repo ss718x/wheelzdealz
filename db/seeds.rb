@@ -6,16 +6,27 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 # require 'faker'
+
+# Destroy existing records
 Offer.destroy_all
 Car.destroy_all
 User.destroy_all
 
+# Create admin user
 user = User.find_or_create_by(email: 'wheelzdealz@example.com') do |user|
   user.password = '00000000'
   user.password_confirmation = '00000000'
   user.name = 'admin'
 end
 
+# Create test user
+User.find_or_create_by(email: 'user@test.com') do |user|
+  user.password = '00000000'
+  user.password_confirmation = '00000000'
+  user.name = 'Testo'
+end
+
+# Create other users
 5.times do
   User.create!(
     email: Faker::Internet.unique.email,
@@ -25,17 +36,20 @@ end
   )
 end
 
-20.times do
-  car = Car.create!(
+# Create cars for the admin user
+user = User.find_by(email: 'wheelzdealz@example.com')
+
+12.times do
+  user.cars.create!(
     car_model: Faker::Vehicle.make_and_model,
     car_info: Faker::Vehicle.standard_specs.join(". "),
     car_price: rand(1_000_000..10_000_000),
-    offer_status: false,
-    seller: User.all.sample
+    offer_status: false
   )
 end
 
-selected_cars = Car.all.sample(5)
+# Create offers for selected cars
+selected_cars = user.cars.sample(3)
 
 selected_cars.each do |car|
   buyer = (User.all - [car.seller]).sample

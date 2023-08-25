@@ -16,6 +16,7 @@ class CarsController < ApplicationController
     @car.seller = current_user
 
     if @car.save
+      @car.update(offer_status: true)
       redirect_to @car, notice: 'Car was successfully created.'
     else
       render :new
