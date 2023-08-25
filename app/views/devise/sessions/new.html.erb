@@ -1,5 +1,5 @@
 <div class="container col-3">
-  <h2>Log in</h2>
+  <h2>Log In</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
   data: {turbo: false}) do |f| %>
@@ -15,7 +15,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Log in", class: "btn btn-primary" %>
+      <%= f.button :submit, "Log In", class: "btn btn-primary btn-md" %>
     </div>
   <% end %>
 
