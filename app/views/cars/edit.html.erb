@@ -3,10 +3,10 @@
     <%= f.input :car_model, label: "Car Model" %>
     <%= f.input :car_info, label: "Description", as: :text %>
     <%= f.input :car_price, label: "Price" %>
-    <%= f.button :submit, "Submit", class: 'btn btn-primary mx-2', data: { action: 'click->update-car-form#submit' } %>
+    <%= f.button :submit, "Submit", class: 'btn btn-dark rounded-pill mb-2 px-4 py-2', data: { action: 'click->update-car-form#submit' } %>
   <% end %>
 
   <%= form_with url: car_path(@car), method: :delete do |f| %>
-    <%= f.submit 'Delete', class: 'btn btn-danger mx-2' %>
+    <%= f.submit 'Delete', class: 'btn btn-danger rounded-pill mx-2 px-4 py-2' %>
   <% end %>
 </div>
