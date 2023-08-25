@@ -7,9 +7,9 @@ class Offer < ApplicationRecord
   end
 
   def status
-    if approved?
+    if approved
       'Approved'
-    elsif declined?
+    elsif declined
       'Declined'
     else
       'Pending'
