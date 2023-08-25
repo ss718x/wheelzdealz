@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :cars, only: [:index, :show, :new, :create, :edit, :update]
 
-  resources :offers, only: [:index, :show, :edit, :update]
+  resources :offers, only: [:index, :show, :new, :create, :edit, :update]
 
   get '/check_login', to: 'application#check_login'
 end
