@@ -12,7 +12,8 @@ class CarsController < ApplicationController
   end
 
   def create
-    @car = current_user.cars.build(car_params)
+    @car = Car.new(car_params)
+    @car.seller = current_user
 
     if @car.save
       redirect_to @car, notice: 'Car was successfully created.'
@@ -28,6 +29,6 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:car_model, :car_info, :car_price)
+    params.require(:car).permit(:car_model, :car_info, :car_price, :offer_status, :seller_id)
   end
 end

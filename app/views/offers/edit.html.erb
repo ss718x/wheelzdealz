@@ -1,0 +1,8 @@
+<div class="container col-4">
+  <%= simple_form_for @car, data: { controller: 'sell-car-form' } do |f| %>
+    <%= f.input :car_model, label: "Car Model" %>
+    <%= f.input :car_info, label: "Description", as: :text %>
+    <%= f.input :car_price, label: "Price" %>
+    <%= f.button :submit, "Submit", class: 'btn btn-primary', data: { action: 'click->sell-car-form#submit' } %>
+  <% end %>
+</div>
