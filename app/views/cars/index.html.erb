@@ -18,7 +18,7 @@
       <div class="card m-3" style="width: 18rem;">
         <%= link_to car_path(car), class: "text-decoration-none text-dark" do %>
         <% model = car.car_model %>
-        <img class="card-img-top" src="https://source.unsplash.com/300x300/?<%= model %>" alt="for sale">
+        <img class="card-img-top" src="https://source.unsplash.com/300x300/?car <%= model %>" alt="for sale">
         <div class="card-body">
           <h2><%= car.car_model %></h2>
           <span><%= "¥" + number_with_delimiter(car.car_price.to_s) %></span>
