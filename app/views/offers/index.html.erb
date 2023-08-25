@@ -1,4 +1,31 @@
-<h1>Offers</h1>
+<!-- your cars for sale -->
+<% if current_user && @cars_for_sale.any? %>
+  <h2>Your Cars for Sale</h2>
+  <div class="row">
+    <% @cars_for_sale.each do |car| %>
+      <div class="col-md-4">
+        <div class="card">
+            <% model = car.car_model %>
+            <img class="card-img-top" src="https://source.unsplash.com/300x300/?<%= model %>" alt="for sale">
+          <div class="card-header">
+            <%= car.car_model %>
+          </div>
+          <div class="card-body">
+            <p><strong>Car Info:</strong> <%= car.car_info %></p>
+            <p><strong>Price:</strong> $<%= car.car_price %></p>
+            <p><strong>Offer Status:</strong> <%= car.offer_status ? 'Active' : 'Inactive' %></p>
+          </div>
+          <%= link_to "Edit", edit_car_path(car), class: "offer_link btn btn-dark mx-2 rounded-pill px-4 py-2" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <h2 class="text-center mt-5 mb-3 text-danger">Oops!</h2>
+  <p class="lead text-center">You currently don't have any cars listed for sale.</p>
+<% end %>
+
+<h1>Browse Current Offers</h1>
 
 <div class="container mt-5">
   <div class="row">
@@ -6,7 +33,7 @@
       <div class="col-md-4 mb-4">
         <div class="card">
         <% model = offer.car.car_model %>
-        <img class="card-img-top" src="https://source.unsplash.com/300x300/?<%= model %>" alt="for sale">
+        <img class="card-img-top" src="https://source.unsplash.com/300x300/?car <%= model %>" alt="for sale">
           <div class="card-body">
             <h5 class="card-title"><%= offer.car.car_model %></h5>
             <p class="card-text">
@@ -21,29 +48,4 @@
       </div>
     <% end %>
   </div>
-
-  <!-- your cars for sale -->
-  <% if current_user && @cars_for_sale.any? %>
-    <h2>Your Cars for Sale</h2>
-    <div class="row">
-      <% @cars_for_sale.each do |car| %>
-        <div class="col-md-4">
-          <div class="card">
-              <% model = car.car_model %>
-             <img class="card-img-top" src="https://source.unsplash.com/300x300/?<%= model %>" alt="for sale">
-            <div class="card-header">
-              <%= car.car_model %>
-            </div>
-            <div class="card-body">
-              <p><strong>Car Info:</strong> <%= car.car_info %></p>
-              <p><strong>Price:</strong> $<%= car.car_price %></p>
-              <p><strong>Offer Status:</strong> <%= car.offer_status ? 'Active' : 'Inactive' %></p>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
-    <h2>You have no cars for sale</h2>
-  <% end %>
 </div>

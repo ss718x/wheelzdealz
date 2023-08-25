@@ -14,7 +14,9 @@
           <p class="card-text mb-0"><strong>Email:</strong> <%= @car.seller.email %></p>
         </div>
         <div class="d-flex justify-content-center mb-4">
-          <button class="offer_link btn btn-dark mx-2 rounded-pill px-4 py-2" id="buyButton" onclick="markOfferMade(this)">Buy</button>
+          <% if current_user != @car.seller %>
+            <button class="offer_link btn btn-dark mx-2 rounded-pill px-4 py-2" id="buyButton" onclick="markOfferMade(this)">Buy</button>
+          <% end %>
           <%= link_to "Edit", edit_car_path, class: "offer_link btn btn-dark mx-2 rounded-pill px-4 py-2" %>
         </div>
       </div>
