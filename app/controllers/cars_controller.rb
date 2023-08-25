@@ -23,6 +23,26 @@ class CarsController < ApplicationController
     end
   end
 
+  def edit
+    @car = Car.find(params[:id])
+  end
+
+  def update
+    @car = Car.find(params[:id])
+    if @car.update(car_params)
+      redirect_to @car, notice: 'Car was successfully updated.'
+    else
+      puts "errors #{@car.errors.full_messages}"
+      render :edit
+    end
+  end
+
+  def destroy
+    @car = Car.find(params[:id])
+    @car.destroy
+    redirect_to cars_path, status: 303, notice: 'Car was successfully deleted.'
+  end
+
   def check_login
     render json: { login_required: !user_signed_in? }
   end
