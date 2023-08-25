@@ -6,8 +6,15 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 # require 'faker'
+Offer.destroy_all
 Car.destroy_all
 User.destroy_all
+
+user = User.find_or_create_by(email: 'wheelzdealz@example.com') do |user|
+  user.password = '00000000'
+  user.password_confirmation = '00000000'
+  user.name = 'admin'
+end
 
 5.times do
   User.create!(
@@ -18,17 +25,17 @@ User.destroy_all
   )
 end
 
-10.times do
-  car = Car.new(
+20.times do
+  car = Car.create!(
     car_model: Faker::Vehicle.make_and_model,
     car_info: Faker::Vehicle.standard_specs.join(". "),
     car_price: rand(1_000_000..10_000_000),
     offer_status: false,
-    seller: seller
+    seller: User.all.sample
   )
 end
 
-selected_cars = cars.sample(5)
+selected_cars = Car.all.sample(5)
 
 selected_cars.each do |car|
   buyer = (User.all - [car.seller]).sample
