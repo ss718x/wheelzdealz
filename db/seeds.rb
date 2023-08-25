@@ -16,6 +16,12 @@ user = User.find_or_create_by(email: 'wheelzdealz@example.com') do |user|
   user.name = 'admin'
 end
 
+test_buyer = User.find_or_create_by(email: 'buyer@example.com') do |user|
+  user.password = '00000000'
+  user.password_confirmation = '00000000'
+  user.name = 'test buyer'
+end
+
 5.times do
   User.create!(
     email: Faker::Internet.unique.email,
@@ -25,13 +31,14 @@ end
   )
 end
 
+user = User.find_by(email: 'wheelzdealz@example.com')
+
 20.times do
-  car = Car.create!(
+  user.cars.create!(
     car_model: Faker::Vehicle.make_and_model,
     car_info: Faker::Vehicle.standard_specs.join(". "),
     car_price: rand(1_000_000..10_000_000),
-    offer_status: false,
-    seller: User.all.sample
+    offer_status: false
   )
 end
 
