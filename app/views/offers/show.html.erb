@@ -6,12 +6,12 @@
           Offer for <%= @offer.car.car_model %>
         </div>
         <div class="card-body">
-          <h5 class="card-title"><%= @offer.car.car_model %></h5>
+          <h5 class="card-title"><strong><%= @offer.car.car_model %></strong></h5>
           <p class="card-text">
             <strong>Car Info:</strong> <%= @offer.car.car_info %><br>
-            <strong>Price:</strong> $<%= @offer.car.car_price %><br>
             <strong>Seller:</strong> <%= @offer.car.seller.name %><br>
             <strong>Buyer:</strong> <%= @offer.buyer.name %><br>
+            <strong>Price:</strong> <%= "¥" + number_with_delimiter(@offer.car.car_price.to_s) %><br>
           </p>
 
           <% if current_user == @offer.car.seller %>
